@@ -1,0 +1,29 @@
+{
+  "public": {
+    "core": {
+      "appName": "创投加速器",
+      "appLogo": "/images/logo.png",
+      "ownerEmail": "app@example.com"
+    },
+    "posts": {
+      "showType": "list",
+      "categories": ["cate1", "cate2", "cate3"],
+      "UI": {
+        "categoriesPosition": "top"
+      }
+    },
+    "wechat": {
+      "appId": ""
+    }
+  },
+  "core": {
+    "qiniu": {
+      "ACCESS_KEY": "w91fRk5eHMyQ3rbHUdXGFgBEM584K18b1q0bRDUd",
+      "SECRET_KEY": "PFGMTuFhXRNZs2DbIyKw6DbRd6QTL16z8X1KJ9_2"
+    }
+  },
+  "wechat": {
+    "appSecret": ""
+  },
+  "mailUrl": ""
+}
