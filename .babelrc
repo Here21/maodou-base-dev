@@ -2,10 +2,6 @@
   "plugins": [
     ["antd", [
       {
-        "libraryName": "antd",
-        "style": true
-      },
-      {
         "libraryName": "antd-mobile",
         "style": true
       }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, WingBlank, WhiteSpace } from 'antd-mobile';
+import { TabBar } from 'antd-mobile/dist/antd-mobile';
 
 export default class extends React.Component {
   constructor(props) {
@@ -9,24 +9,78 @@ export default class extends React.Component {
       hidden: false,
     };
   }
-
+  renderContent() {
+    this.setState({
+      hidden: !this.state.hidden,
+    });
+  }
   render() {
     return (
-      <WingBlank size="lg">
-        <WhiteSpace size="lg" />
-        <Card>
-          <Card.Header
-            title="这是 title"
-            thumb="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
-            extra={<span>this is extra</span>}
-          />
-          <Card.Body>
-            <div>这是卡片内容</div>
-          </Card.Body>
-          <Card.Footer content="这是卡尾" extra={<div>这是尾部介绍</div>} />
-        </Card>
-        <WhiteSpace size="lg" />
-      </WingBlank>
+      <TabBar
+        unselectedTintColor="#949494"
+        tintColor="#33A3F4"
+        barTintColor="white"
+        hidden={this.state.hidden}
+      >
+        <TabBar.Item
+          title="新闻"
+          key="新闻"
+          icon={require('../icons/news.png')}
+          selectedIcon={require('../icons/newsOn.png')}
+          selected={this.state.selectedTab === 'blueTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'blueTab',
+            });
+          }}
+          data-seed="logId"
+        >
+          {this.renderContent}
+        </TabBar.Item>
+        <TabBar.Item
+          icon={require('../icons/活动.png')}
+          selectedIcon={require('../icons/活动 (1).png')}
+          title="活动"
+          key="活动"
+          selected={this.state.selectedTab === 'redTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'redTab',
+            });
+          }}
+          data-seed="logId1"
+        >
+          {this.renderContent}
+        </TabBar.Item>
+        <TabBar.Item
+          icon={require('../icons/项目.png')}
+          selectedIcon={require('../icons/项目 (1).png')}
+          title="项目"
+          key="项目"
+          selected={this.state.selectedTab === 'greenTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'greenTab',
+            });
+          }}
+        >
+          {this.renderContent}
+        </TabBar.Item>
+        <TabBar.Item
+          icon={require('../icons/客户.png')}
+          selectedIcon={require('../icons/客户 (1).png')}
+          title="客户"
+          key="客户"
+          selected={this.state.selectedTab === 'yellowTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'yellowTab',
+            });
+          }}
+        >
+          {this.renderContent}
+        </TabBar.Item>
+      </TabBar>
     );
   }
 }
