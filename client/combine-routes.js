@@ -9,6 +9,7 @@ import AdminLayout from './containers/admin/layout';
 import Register from './containers/users/register';
 import Login from './containers/users/login';
 import MainPage from '../maodou/singlePages/client/containers/mainPage';
+import User from  './containers/users/user';
 
 export default function (routes, injectDeps, context) {
 
@@ -40,6 +41,7 @@ export default function (routes, injectDeps, context) {
       component: injectDeps(Layout),
       indexRoute: {component: MainPage},
       childRoutes: [
+        {path: '/user', component: () => <User />},
         { path: '/register', component: () => <Register /> },
         { path: '/login', component: () => <Login /> },
         {path: '401', component: () => <ErrorPage code="401" info="Unauthorized" />},

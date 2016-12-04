@@ -11,7 +11,4 @@ const depsToProps = (context, actions) => ({
   setLanguage: actions.core.setLanguage
 });
 
-export default composeAll(
-  withRedux(),
-  useDeps()
-)(Footer);
+export default composeAll()(Footer);

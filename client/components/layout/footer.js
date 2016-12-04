@@ -1,11 +1,12 @@
 import React from 'react';
 import { TabBar } from 'antd-mobile/dist/antd-mobile';
+import { browserHistory } from 'react-router';
 
 export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'redTab',
+      selectedTab: 'posts',
       hidden: false,
     };
   }
@@ -23,14 +24,15 @@ export default class extends React.Component {
         hidden={this.state.hidden}
       >
         <TabBar.Item
-          title="新闻"
-          key="新闻"
-          icon={require('../../icons/news.png')}
-          selectedIcon={require('../../icons/newsOn.png')}
-          selected={this.state.selectedTab === 'blueTab'}
+          title="文章"
+          key="文章"
+          icon={{uri: 'http://obd9ssud2.bkt.clouddn.com/maodou/icons/news.png'}}
+          selectedIcon={{uri: 'http://obd9ssud2.bkt.clouddn.com/maodou/icons/newsOn.png'}}
+          selected={this.state.selectedTab === 'posts'}
           onPress={() => {
+            browserHistory.push('/posts/list');
             this.setState({
-              selectedTab: 'blueTab',
+              selectedTab: 'posts',
             });
           }}
           data-seed="logId"
@@ -38,41 +40,28 @@ export default class extends React.Component {
           {this.renderContent}
         </TabBar.Item>
         <TabBar.Item
-          icon={require('../../icons/活动.png')}
-          selectedIcon={require('../../icons/活动 (1).png')}
-          title="活动"
-          key="活动"
-          selected={this.state.selectedTab === 'redTab'}
+          icon={{uri: 'http://obd9ssud2.bkt.clouddn.com/maodou/icons/courses.png'}}
+          selectedIcon={{uri: 'http://obd9ssud2.bkt.clouddn.com/maodou/icons/coursesOn.png'}}
+          title="课程"
+          key="课程"
+          selected={this.state.selectedTab === 'events'}
           onPress={() => {
+            browserHistory.push('/events/list');
             this.setState({
-              selectedTab: 'redTab',
-            });
-          }}
-          data-seed="logId1"
-        >
-          {this.renderContent}
-        </TabBar.Item>
-        <TabBar.Item
-          icon={require('../../icons/项目.png')}
-          selectedIcon={require('../../icons/项目 (1).png')}
-          title="项目"
-          key="项目"
-          selected={this.state.selectedTab === 'greenTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'greenTab',
+              selectedTab: 'events',
             });
           }}
         >
           {this.renderContent}
         </TabBar.Item>
         <TabBar.Item
-          icon={require('../../icons/客户.png')}
-          selectedIcon={require('../../icons/客户 (1).png')}
-          title="客户"
-          key="客户"
+          icon={{uri: 'http://obd9ssud2.bkt.clouddn.com/maodou/icons/me.png'}}
+          selectedIcon={{uri: 'http://obd9ssud2.bkt.clouddn.com/maodou/icons/meOn.png'}}
+          title="我的"
+          key="我的"
           selected={this.state.selectedTab === 'yellowTab'}
           onPress={() => {
+            browserHistory.push('/user');
             this.setState({
               selectedTab: 'yellowTab',
             });
@@ -81,6 +70,7 @@ export default class extends React.Component {
           {this.renderContent}
         </TabBar.Item>
       </TabBar>
+
     );
   }
 }
